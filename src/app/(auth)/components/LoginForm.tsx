@@ -1,14 +1,16 @@
 import { LoginFormProps } from "../types/auth-form.types";
 import { FormField } from "@/components/molecules/FormField";
 import Input from "@/components/atoms/Input";
+import Button from "@/components/atoms/Button";
 
 export default function LoginForm({
   data,
   onChange,
   onSubmit,
+  isSubmitting,
 }: LoginFormProps) {
   return (
-    <div>
+    <form onSubmit={onSubmit} className="space-y-4">
       <FormField label="Correo" name="email">
         <Input
           type="email"
@@ -26,6 +28,15 @@ export default function LoginForm({
           onChange={onChange}
         />
       </FormField>
-    </div>
+
+      <Button
+        type="submit"
+        variant="primary"
+        className="w-full"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Ingresando..." : "Iniciar sesión"}
+      </Button>
+    </form>
   );
 }

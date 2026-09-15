@@ -6,9 +6,11 @@ import { FormField } from "@/components/molecules/FormField";
 export default function ForgotPassword({
   data,
   onChange,
+  onSubmit,
+  isSubmitting,
 }: ForgotPasswordProps) {
   return (
-    <div>
+    <form onSubmit={onSubmit} className="space-y-4">
       <FormField label="Correo" name="email">
         <Input
           type="email"
@@ -17,6 +19,15 @@ export default function ForgotPassword({
           onChange={onChange}
         />
       </FormField>
-    </div>
+
+      <Button
+        type="submit"
+        variant="primary"
+        className="w-full"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Enviando..." : "Enviar enlace"}
+      </Button>
+    </form>
   );
 }

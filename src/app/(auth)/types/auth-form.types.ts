@@ -28,6 +28,7 @@ export interface ResetPasswordProps {
   data: ResetPasswordFormData;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  isSubmitting?: boolean;
 }
 
 export interface ForgotPasswordFormData {
@@ -38,16 +39,19 @@ export interface ForgotPasswordProps {
   data: ForgotPasswordFormData;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  isSubmitting?: boolean;
 }
 
 export interface LoginFormProps {
   data: LoginFormData;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  isSubmitting?: boolean;
 }
 
 export interface RegisterFormProps {
   data: RegisterFormData;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  isSubmitting?: boolean;
 }

@@ -7,9 +7,10 @@ export default function RegisterForm({
   data,
   onChange,
   onSubmit,
+  isSubmitting,
 }: RegisterFormProps) {
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="space-y-4">
       <FormField label="Correo" name="email">
         <Input
           type="email"
@@ -19,80 +20,93 @@ export default function RegisterForm({
         />
       </FormField>
 
-      <FormField label="Contraseña" name="password">
-        <Input
-          type="password"
-          name="password"
-          value={data.password}
-          onChange={onChange}
-        />
-      </FormField>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <FormField label="Contraseña" name="password">
+          <Input
+            type="password"
+            name="password"
+            value={data.password}
+            onChange={onChange}
+          />
+        </FormField>
 
-      <FormField label="Confirmar contraseña" name="confirmPassword">
-        <Input
-          type="password"
-          name="confirmPassword"
-          value={data.confirmPassword}
-          onChange={onChange}
-        />
-      </FormField>
+        <FormField label="Confirmar contraseña" name="confirmPassword">
+          <Input
+            type="password"
+            name="confirmPassword"
+            value={data.confirmPassword}
+            onChange={onChange}
+          />
+        </FormField>
+      </div>
 
-      <FormField label="Primer nombre" name="primer_nombre">
-        <Input
-          type="text"
-          name="primer_nombre"
-          value={data.primer_nombre}
-          onChange={onChange}
-        />
-      </FormField>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <FormField label="Primer nombre" name="primer_nombre">
+          <Input
+            type="text"
+            name="primer_nombre"
+            value={data.primer_nombre}
+            onChange={onChange}
+          />
+        </FormField>
 
-      <FormField label="Segundo nombre" name="segundo_nombre">
-        <Input
-          type="text"
-          name="segundo_nombre"
-          value={data.segundo_nombre ?? ""}
-          onChange={onChange}
-        />
-      </FormField>
+        <FormField label="Segundo nombre" name="segundo_nombre">
+          <Input
+            type="text"
+            name="segundo_nombre"
+            value={data.segundo_nombre ?? ""}
+            onChange={onChange}
+          />
+        </FormField>
+      </div>
 
-      <FormField label="Apellido paterno" name="apellido_paterno">
-        <Input
-          type="text"
-          name="apellido_paterno"
-          value={data.apellido_paterno}
-          onChange={onChange}
-        />
-      </FormField>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <FormField label="Apellido paterno" name="apellido_paterno">
+          <Input
+            type="text"
+            name="apellido_paterno"
+            value={data.apellido_paterno}
+            onChange={onChange}
+          />
+        </FormField>
 
-      <FormField label="Apellido materno" name="apellido_materno">
-        <Input
-          type="text"
-          name="apellido_materno"
-          value={data.apellido_materno ?? ""}
-          onChange={onChange}
-        />
-      </FormField>
+        <FormField label="Apellido materno" name="apellido_materno">
+          <Input
+            type="text"
+            name="apellido_materno"
+            value={data.apellido_materno ?? ""}
+            onChange={onChange}
+          />
+        </FormField>
+      </div>
 
-      <FormField label="Área" name="area_id">
-        <Input
-          type="text"
-          name="area_id"
-          value={data.area_id}
-          onChange={onChange}
-        />
-      </FormField>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <FormField label="Área" name="area_id">
+          <Input
+            type="text"
+            name="area_id"
+            value={data.area_id}
+            onChange={onChange}
+          />
+        </FormField>
 
-      <FormField label="Rol" name="role_id">
-        <Input
-          type="text"
-          name="role_id"
-          value={data.role_id}
-          onChange={onChange}
-        />
-      </FormField>
+        <FormField label="Rol" name="role_id">
+          <Input
+            type="text"
+            name="role_id"
+            value={data.role_id}
+            onChange={onChange}
+          />
+        </FormField>
+      </div>
 
-      <Button variant="primary" type="submit">
-        Registrarse
+      <Button
+        variant="primary"
+        type="submit"
+        className="w-full"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Registrando..." : "Registrarse"}
       </Button>
     </form>
   );

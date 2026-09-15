@@ -7,9 +7,10 @@ export default function ResetPassword({
   data,
   onChange,
   onSubmit,
+  isSubmitting,
 }: ResetPasswordProps) {
   return (
-    <div>
+    <form onSubmit={onSubmit} className="space-y-4">
       <FormField label="Contraseña" name="password">
         <Input
           type="password"
@@ -19,14 +20,23 @@ export default function ResetPassword({
         />
       </FormField>
 
-      <FormField label="Confirma contraseña" name="password">
+      <FormField label="Confirma contraseña" name="confirmPassword">
         <Input
           type="password"
-          name="password"
+          name="confirmPassword"
           value={data.confirmPassword}
           onChange={onChange}
         />
       </FormField>
-    </div>
+
+      <Button
+        type="submit"
+        variant="primary"
+        className="w-full"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Guardando..." : "Cambiar contraseña"}
+      </Button>
+    </form>
   );
 }
