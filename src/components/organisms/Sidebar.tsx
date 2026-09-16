@@ -14,16 +14,20 @@ export default function Sidebar() {
           Inicio
         </NavItem>
 
-        <NavItem href="/dashboard/applications" icon={<Briefcase />}>
-          Postulaciones
+        <NavItem href="/dashboard/notificaciones" icon={<Briefcase />}>
+          Notificaciones
         </NavItem>
 
-        <NavItem href="/dashboard/companies" icon={<Building />}>
-          Empresas
+        <NavItem href="/dashboard/usuarios" icon={<Building />}>
+          usuarios
         </NavItem>
 
-        <NavItem href="/dashboard/job_positions" icon={<FileText />}>
-          Vacantes
+        <NavItem href="/dashboard/tickets" icon={<FileText />}>
+          tickets
+        </NavItem>
+
+        <NavItem href="/dashboard/tickets" icon={<FileText />}>
+          Reportes
         </NavItem>
       </Navbar>
 

@@ -6,9 +6,9 @@ import { PanelLeftClose } from "lucide-react";
 export default function SidebarHeader() {
   return (
     <header className="flex justify-center flex-col items-center ">
-      <a href="/" className="p-4 ">
+      <a href="/dashboard" className="p-4 ">
         <Text variant="white" size="2xl" className="hover:text-blue-700">
-          JTracker
+          Sistema de tickets
         </Text>
       </a>
 

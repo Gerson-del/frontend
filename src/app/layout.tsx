@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Interview Tracking",
-  description: "Track your job applications and interviews",
+  title: "Sistema de tickets",
+  description: "Sistema para asignar o recibir tickets",
 };
 
 export default function RootLayout({
