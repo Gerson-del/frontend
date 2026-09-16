@@ -1,4 +1,4 @@
-import Sidebar from "@/components/organisms/Sidebar";
+import Header from "@/components/organisms/Header";
 
 export default function DashboardLayout({
   children,
@@ -6,9 +6,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar></Sidebar>
-      <main className="min-w-0 flex-1">{children}</main>
+    <div className="min-h-screen">
+      <Header />
+
+      <main className="mx-auto w-full max-w-7xl px-3 py-3">{children}</main>
     </div>
   );
 }

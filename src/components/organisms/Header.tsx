@@ -1,15 +1,13 @@
 import Navbar from "./Navbar";
 import NavItem from "../molecules/NavItem";
-import SidebarHeader from "../molecules/SidebarHeader";
-import SidebarFooter from "../molecules/SidebarFooter";
+import { LogOut } from "lucide-react";
 import { Building, Briefcase, FileText, House, Home } from "lucide-react";
+import Button from "../atoms/Button";
 
-export default function Sidebar() {
+export default function Header() {
   return (
-    <aside className="flex h-screen w-64 flex-col  bg-blue-500">
-      <SidebarHeader />
-
-      <Navbar className="flex-1">
+    <header className="flex h-16 w-full items-center px-6 justify-between bg-red-500">
+      <Navbar className="flex items-center gap-4">
         <NavItem href="/dashboard/" icon={<Home />}>
           Inicio
         </NavItem>
@@ -31,7 +29,9 @@ export default function Sidebar() {
         </NavItem>
       </Navbar>
 
-      <SidebarFooter />
-    </aside>
+      <Button icon={<LogOut></LogOut>} variant="danger">
+        Cerrar sesion
+      </Button>
+    </header>
   );
 }
