@@ -18,8 +18,6 @@ const initialData: RegisterFormData = {
   segundo_nombre: "",
   apellido_paterno: "",
   apellido_materno: "",
-  role_id: "",
-  area_id: "",
 };
 
 export default function RegisterPage() {

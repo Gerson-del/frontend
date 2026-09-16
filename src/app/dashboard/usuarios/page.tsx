@@ -1,3 +1,5 @@
-export default function NotificatioPage() {
-  return <div>Esta es la pagina de usuarios</div>;
+import UsersClient from "./UsersClient";
+
+export default function UsuariosPage() {
+  return <UsersClient />;
 }

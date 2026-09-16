@@ -80,26 +80,6 @@ export default function RegisterForm({
         </FormField>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <FormField label="Área" name="area_id">
-          <Input
-            type="text"
-            name="area_id"
-            value={data.area_id}
-            onChange={onChange}
-          />
-        </FormField>
-
-        <FormField label="Rol" name="role_id">
-          <Input
-            type="text"
-            name="role_id"
-            value={data.role_id}
-            onChange={onChange}
-          />
-        </FormField>
-      </div>
-
       <Button
         variant="primary"
         type="submit"

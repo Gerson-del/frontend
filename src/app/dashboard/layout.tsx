@@ -1,3 +1,4 @@
+import AuthGuard from "@/components/auth/AuthGuard";
 import Header from "@/components/organisms/Header";
 
 export default function DashboardLayout({
@@ -6,10 +7,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <AuthGuard>
+      <div className="min-h-screen">
+        <Header />
 
-      <main className="mx-auto w-full max-w-7xl px-3 py-3">{children}</main>
-    </div>
+        <main className="mx-auto w-full max-w-7xl px-3 py-3">{children}</main>
+      </div>
+    </AuthGuard>
   );
 }

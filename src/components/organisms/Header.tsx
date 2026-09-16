@@ -1,15 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "./Navbar";
 import NavItem from "../molecules/NavItem";
 import { LogOut } from "lucide-react";
-import { Building, Briefcase, FileText, House, Home } from "lucide-react";
+import { Building, Briefcase, FileText, Home } from "lucide-react";
 import Button from "../atoms/Button";
 import { authService } from "@/services/authService";
 
+const canManageUsers = (role: string | null) =>
+  role === "admin" || role === "agente";
+
 export default function Header() {
   const router = useRouter();
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    authService
+      .getMe()
+      .then(({ data }) => setRole(data.role))
+      .catch(() => setRole(null));
+  }, []);
 
   async function handleLogout() {
     await authService.logout();
@@ -27,9 +39,11 @@ export default function Header() {
           Notificaciones
         </NavItem>
 
-        <NavItem href="/dashboard/usuarios" icon={<Building />}>
-          usuarios
-        </NavItem>
+        {canManageUsers(role) && (
+          <NavItem href="/dashboard/usuarios" icon={<Building />}>
+            usuarios
+          </NavItem>
+        )}
 
         <NavItem href="/dashboard/tickets" icon={<FileText />}>
           tickets
