@@ -6,7 +6,7 @@ import Button from "../atoms/Button";
 
 export default function Header() {
   return (
-    <header className="flex h-16 w-full items-center px-6 justify-between bg-red-500">
+    <header className="flex h-16 w-full items-center px-6 justify-between ">
       <Navbar className="flex items-center gap-4">
         <NavItem href="/dashboard/" icon={<Home />}>
           Inicio
