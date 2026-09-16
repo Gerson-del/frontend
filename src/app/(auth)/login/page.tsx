@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthLayout from "@/components/layouts/AuthLayout";
 import LoginForm from "../components/LoginForm";
 import Text from "@/components/atoms/Text";
 import { authService } from "@/services/authService";
+import { supabase } from "@/lib/supabase";
 import { ApiError } from "@/errors/errors";
 import type { LoginFormData } from "../types/auth-form.types";
 
@@ -20,6 +22,14 @@ export default function LoginPage() {
   const [data, setData] = useState<LoginFormData>(initialData);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) {
+        router.replace("/dashboard");
+      }
+    });
+  }, [router]);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;

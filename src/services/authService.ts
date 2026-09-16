@@ -1,5 +1,8 @@
 import { supabase } from "@/lib/supabase";
+import { apiService } from "./apiService";
 import { ApiError } from "@/errors/errors";
+import type { Me } from "@/types/auth";
+import type { ApiResponse } from "@/types/api";
 import type {
   LoginFormData,
   RegisterFormData,
@@ -33,8 +36,6 @@ export const authService = {
           segundo_nombre: data.segundo_nombre,
           apellido_paterno: data.apellido_paterno,
           apellido_materno: data.apellido_materno,
-          role_id: data.role_id,
-          area_id: data.area_id,
         },
       },
     });
@@ -65,4 +66,6 @@ export const authService = {
 
     if (error) throw toApiError(error.message, error.status);
   },
+
+  getMe: () => apiService.get<ApiResponse<Me>>("/auth/me"),
 };

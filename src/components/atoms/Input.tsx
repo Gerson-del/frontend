@@ -3,6 +3,8 @@ interface InputProps {
   type?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  minLength?: number;
 }
 
 export default function Input({
@@ -10,6 +12,8 @@ export default function Input({
   type = "text",
   value,
   onChange,
+  required,
+  minLength,
 }: InputProps) {
   return (
     <input
@@ -18,6 +22,8 @@ export default function Input({
       name={name}
       value={value}
       onChange={onChange}
+      required={required}
+      minLength={minLength}
       className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-500"
     />
   );

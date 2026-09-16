@@ -14,9 +14,6 @@ export interface RegisterFormData {
   segundo_nombre?: string;
   apellido_paterno: string;
   apellido_materno?: string;
-
-  role_id: string;
-  area_id: string;
 }
 
 export interface ResetPasswordFormData {
