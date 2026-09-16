@@ -26,7 +26,7 @@ export default function Sidebar() {
           tickets
         </NavItem>
 
-        <NavItem href="/dashboard/tickets" icon={<FileText />}>
+        <NavItem href="/dashboard/reportes" icon={<FileText />}>
           Reportes
         </NavItem>
       </Navbar>
