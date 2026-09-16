@@ -49,7 +49,10 @@ export default function LoginPage() {
       subtitle="Ingresa tus credenciales para continuar"
       footer={
         <div className="flex flex-col gap-2">
-          <Link href="/forgot-password" className="text-blue-600 hover:underline">
+          <Link
+            href="/forgot-password"
+            className="text-blue-600 hover:underline"
+          >
             ¿Olvidaste tu contraseña?
           </Link>
           <span>
